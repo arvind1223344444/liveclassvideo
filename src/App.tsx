@@ -24,8 +24,9 @@ function App() {
 
   return (
     <div style={styles.container}>
-      <h1>aakash React Videocall</h1>
+      <h1> Join Live class </h1>
       {!inCall ? (
+        <div style={styles.row} >
         <Form
           AppID={AppID}
           setAppID={setAppID}
@@ -35,6 +36,7 @@ function App() {
           setToken={setToken}
           setInCall={setInCall}
         />
+        </div>
       ) : (
         <AgoraRTCProvider client={client}>
           <Videos channelName={channelName} AppID={AppID} token={token} />
@@ -111,11 +113,11 @@ function Form(props: {
   const { AppID, setAppID, channelName, setChannelName, token, setToken, setInCall } = props;
   return (
     <div>
-      <p>Please enter your Agora AppID and Channel Name</p>
-      <label htmlFor="appid">Agora App ID: </label>
+      <p>Please enter your Class AppID and Channel Name</p>
+      <label htmlFor="appid">Enter App ID: </label>
       <input id="appid" type="text" value={AppID} onChange={(e) => setAppID(e.target.value)} placeholder="required" />
       <br />
-      <label htmlFor="channel">Channel Name: </label>
+      <label htmlFor="channel">Class Name: </label>
       <input
         id="channel"
         type="text"
@@ -124,7 +126,7 @@ function Form(props: {
         placeholder="required"
       />
       <br />
-      <label htmlFor="token">Channel Token: </label>
+      <label htmlFor="token">Class Token: </label>
       <input id="token" type="text" value={token} onChange={(e) => setToken(e.target.value)} placeholder="optional" />
       <br />
       <button
@@ -164,6 +166,14 @@ const styles = {
     flexDirection: "column" as CSSProperties["flexDirection"],
     flex: 1,
     justifyContent: "center",
+  },
+  row:{
+    maxWidth:"90%",
+    margin:"auto",
+    display:"flex",
+    padding:"2px 20px",
+    background:"#16599d",
+    borderRadius: "10px",
   },
   btnContainer: {
     display: "flex",
