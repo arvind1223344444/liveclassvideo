@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div style={styles.container}>
-      <h1>Agora React Videocall</h1>
+      <h1>aakash React Videocall</h1>
       {!inCall ? (
         <Form
           AppID={AppID}
